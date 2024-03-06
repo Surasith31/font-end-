@@ -94,7 +94,10 @@ function LoginPage() {
                           backgroundColor: "#00db00",
                         },
                       }}
-                      onClick={navigateToHome}
+                      onClick={() => {
+                        navigateToHome();
+                        alert("Login สำเร็จ");
+                      }}
                     >
                       LOGIN
                     </Button>

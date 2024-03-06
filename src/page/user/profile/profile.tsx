@@ -1,11 +1,16 @@
-import { Avatar, Button, CardContent, TextField } from "@mui/material";
-import { Box } from "@mui/material";
-import NavbarPagels from "../appbar/login-signup/navber_ls";
-import "../signup/Signup.css";
 import { useNavigate } from "react-router-dom";
-import { ChangeEvent, useRef } from "react";
+import NavberPageUser from "../../appbar/user/navber_user";
+import "../profile/profile.css";
+import {
+  CardContent,
+  TextField,
+  Button,
+  Avatar,
+} from "@mui/material";
+import { Box } from "@mui/system";
+import { useRef, ChangeEvent } from "react";
 
-function SingupPage() {
+function ProfilePage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleAvatarClick = () => {
@@ -19,27 +24,28 @@ function SingupPage() {
     // ทำสิ่งที่คุณต้องการกับไฟล์ที่ถูกเลือก
     console.log("Selected File:", selectedFile);
   };
-  const navigatelogin = useNavigate();
+  const navigatehome = useNavigate();
 
-  function navigateToLogin() {
-    navigatelogin("/login");
+  function navigateToHome() {
+    navigatehome("/");
   }
   return (
     <>
       <div>
-        <NavbarPagels></NavbarPagels>
+        <NavberPageUser></NavberPageUser>
       </div>
-      <div className="main-s">
+      <div className="main-sp">
         <div>
-          <Box className="box1">
+          <Box className="box1p">
             <CardContent>
               <div>
-                <h1 className="ch1">SIGN UP</h1>
+                <h1 className="ch1p">PROFILE</h1>
               </div>
               <div>
                 <div>
                   <Avatar
                     alt="Remy Sharp"
+                    src=""
                     sx={{
                       width: 200,
                       height: 200,
@@ -52,6 +58,7 @@ function SingupPage() {
                     }}
                     onClick={handleAvatarClick}
                   ></Avatar>
+
                   <input
                     type="file"
                     ref={fileInputRef}
@@ -60,31 +67,21 @@ function SingupPage() {
                   />
                 </div>
               </div>
-              <div className="bgflex">
+              <div className="bgflexp">
                 <div>
-                  <h2 className="ch2">USER NAME</h2>
+                  <h2 className="ch2p">USER NAME</h2>
                   <div>
                     <TextField
                       type="email"
                       placeholder="username"
                       variant="outlined"
                       className="textw"
+                      onClick={handleAvatarClick}
                     ></TextField>
                   </div>
                 </div>
                 <div>
-                  <h2 className="ch2">EMAIL</h2>
-                  <div>
-                    <TextField
-                      type="email"
-                      placeholder="email"
-                      variant="outlined"
-                      className="textw"
-                    ></TextField>
-                  </div>
-                </div>
-                <div>
-                  <h2 className="ch2">PASSWORD</h2>
+                  <h2 className="ch2p">PASSWORD</h2>
                   <div>
                     <TextField
                       type="password"
@@ -94,9 +91,20 @@ function SingupPage() {
                     ></TextField>
                   </div>
                 </div>
+                <div>
+                  <h2 className="ch2p">CONFIRM PASSWORD</h2>
+                  <div>
+                    <TextField
+                      type="password"
+                      placeholder="confirm password"
+                      variant="outlined"
+                      className="textw"
+                    ></TextField>
+                  </div>
+                </div>
               </div>
             </CardContent>
-            <div className="sbt">
+            <div className="sbtp">
               <Button
                 variant="contained"
                 size="large"
@@ -112,9 +120,9 @@ function SingupPage() {
                     backgroundColor: "#2c9200",
                   },
                 }}
-                onClick={navigateToLogin}
+                onClick={navigateToHome}
               >
-                SING UP
+                UP DATE
               </Button>
             </div>
           </Box>
@@ -123,4 +131,4 @@ function SingupPage() {
     </>
   );
 }
-export default SingupPage;
+export default ProfilePage;

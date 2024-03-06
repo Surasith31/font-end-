@@ -1,11 +1,25 @@
-import { Button, Grid, IconButton } from "@mui/material";
+import {
+  Avatar,
+  Button,
+  Grid,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+} from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import NavberPageUser from "../appbar/user/navber_user";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import bg from "../../assets/bg1.png";
 import "../home/Home.css";
+import { useNavigate } from "react-router-dom";
+import ImageIcon from "@mui/icons-material/Image";
+
 function HomePage() {
-  function n1() {}
+  const navigatescore = useNavigate();
+
+  function navigateToBoxscore() {
+    navigatescore("/boxscore");
+  }
 
   return (
     <>
@@ -16,7 +30,7 @@ function HomePage() {
         <div className="mainhome">
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-              <Grid xs={10}>
+              <Grid xs={9.7}>
                 <div className="home-h1">
                   <h1>ชอบใครมากกว่ากัน ?</h1>
                 </div>
@@ -29,7 +43,7 @@ function HomePage() {
                             <h2 className="home-h1 ">Name</h2>
                           </div>
                           <div>
-                            <img src={bg} className="imgw" onClick={n1} />
+                            <img src={bg} className="imgw" />
                           </div>
                           <div className="h2-st">
                             <h2>50</h2>
@@ -56,7 +70,7 @@ function HomePage() {
                   </Box>
                 </div>
               </Grid>
-              <Grid xs={2} sx={{ border: "1px solid red" }}>
+              <Grid xs={2.3} className="layout_top10_main">
                 <div className="layout-top10">
                   <div>
                     <div className="home-top10">
@@ -64,20 +78,169 @@ function HomePage() {
                         <h2>TOP 10 !!</h2>
                       </div>
                       <div className="btmy">
-                        <Button>MY</Button>
+                        <Button
+                          variant="outlined"
+                          color="inherit"
+                          size="large"
+                          onClick={() => {
+                            navigateToBoxscore();
+                          }}
+                        >
+                          MY
+                        </Button>
                       </div>
                     </div>
-                    <div className="layout-box">
-                      <Box className="box-top10">1</Box>
-                      <Box className="box-top10">2</Box>
-                      <Box className="box-top10">3</Box>
-                      <Box className="box-top10">4</Box>
-                      <Box className="box-top10">5</Box>
-                      <Box className="box-top10">6</Box>
-                      {/* <Box className="box-top10">7</Box>
-                    <Box className="box-top10">8</Box>
-                    <Box className="box-top10">9</Box>
-                    <Box className="box-top10">10</Box>                 */}
+                    <div>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
+                      <List className="top10_box" style={{ marginTop: "10px" }}>
+                        <ListItem>
+                          <h3 style={{ marginRight: "10px" }}>1.</h3>
+                          <ListItemAvatar>
+                            <Avatar sx={{ width: 50, height: 50 }}>
+                              <ImageIcon />
+                            </Avatar>
+                          </ListItemAvatar>
+                          <ListItemText>
+                            ชื่อ : <br />
+                            โดย: <br />
+                            คะเเนน :{" "}
+                          </ListItemText>
+                        </ListItem>
+                      </List>
                     </div>
                   </div>
                 </div>

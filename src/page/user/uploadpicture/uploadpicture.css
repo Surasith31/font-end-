@@ -1,0 +1,45 @@
+.bgup {
+  background-color: #79a488;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.h1_layout {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+.topgrid {
+  margin-top: 4%;
+}
+.Grid_layout_1 {
+  background-color: #77fff447;
+}
+.Grid_layout_2 {
+  height: 100%;
+  background-color: #b0faca47;
+}
+.img_my {
+  width: 100%;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  margin-top: 5%;
+}
+.img_pd {
+  padding: 10px;
+}
+.box_upload {
+  width: 400px;
+  height: 400px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

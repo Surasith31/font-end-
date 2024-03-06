@@ -2,16 +2,15 @@ import "../../appbar/css/appbar.css";
 import logo from "../../../assets/logo.png";
 import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
 import LoginIcon from "@mui/icons-material/Login";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import PhotoSizeSelectActualIcon from "@mui/icons-material/PhotoSizeSelectActual";
-
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 function NavberPageUser() {
   const navigatehome = useNavigate();
   const navigatelogin = useNavigate();
   const navigateprofile = useNavigate();
+  const navigateuploadpicture = useNavigate();
 
   function navigateToHome() {
     navigatehome("/");
@@ -22,12 +21,15 @@ function NavberPageUser() {
   function navigateToProfile() {
     navigateprofile("/profile");
   }
+  function navigateToUploadPicture() {
+    navigateuploadpicture("/uploadpicture");
+  }
 
   return (
     <>
       <div>
-        <Box className="nbu">
-          <AppBar position="fixed">
+        <Box>
+          <AppBar position="fixed" style={{backgroundColor:"#12372A"}}>
             <Toolbar>
               <div className="fg">
                 <img src={logo} className="logo" />
@@ -36,14 +38,12 @@ function NavberPageUser() {
                 <IconButton onClick={navigateToHome}>
                   <HomeIcon color="primary" className="bticon"></HomeIcon>
                 </IconButton>
-                <IconButton>
-                  <InfoIcon color="primary" className="bticon"></InfoIcon>
-                </IconButton>
-                <IconButton>
-                  <PhotoSizeSelectActualIcon
+
+                <IconButton onClick={navigateToUploadPicture}>
+                  <AddPhotoAlternateIcon
                     color="primary"
                     className="bticon"
-                  ></PhotoSizeSelectActualIcon>
+                  ></AddPhotoAlternateIcon>
                 </IconButton>
                 <IconButton onClick={navigateToProfile}>
                   <AccountCircleIcon
