@@ -1,16 +1,29 @@
-import { Button, Grid, TextField } from "@mui/material";
+import {
+  AppBar,
+  Button,
+  Grid,
+  IconButton,
+  TextField,
+  Toolbar,
+} from "@mui/material";
 import "../login/Login.css";
-import "../appbar/login-signup/navber_ls.tsx";
 import bg from "../../assets/bg1.png";
 import chu from "../../assets/chu.png";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import NavbarPagels from "../appbar/login-signup/navber_ls";
+import logo from "../../assets/logo.png";
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
+
 
 function LoginPage() {
   const navigateSignup = useNavigate();
   const navigateHome = useNavigate();
+  const navigatelogin = useNavigate();
 
+  function navigateToLogin() {
+    navigatelogin("/login");
+  }
   function navigateToSingup() {
     navigateSignup("/signup");
   }
@@ -21,7 +34,24 @@ function LoginPage() {
   return (
     <>
       <div>
-        <NavbarPagels></NavbarPagels>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="fixed" style={{ backgroundColor: "#12372A" }}>
+            <Toolbar>
+              <div className="fg">
+                <img src={logo} className="logo" />
+              </div>
+              <div>
+                <IconButton onClick={navigateToHome}>
+                  <HomeIcon color="primary" className="bticon"></HomeIcon>
+                </IconButton>
+
+                <IconButton onClick={navigateToLogin}>
+                  <LoginIcon color="primary" className="bticon"></LoginIcon>
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </Box>
       </div>
       <div>
         <div className="bggif">

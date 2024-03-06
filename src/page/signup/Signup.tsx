@@ -1,9 +1,20 @@
-import { Avatar, Button, CardContent, TextField } from "@mui/material";
+import {
+  AppBar,
+  Avatar,
+  Button,
+  CardContent,
+  IconButton,
+  TextField,
+  Toolbar,
+} from "@mui/material";
 import { Box } from "@mui/material";
-import NavbarPagels from "../appbar/login-signup/navber_ls";
+
 import "../signup/Signup.css";
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useRef } from "react";
+import logo from "../../assets/logo.png";
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
 
 function SingupPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -19,15 +30,36 @@ function SingupPage() {
     // ทำสิ่งที่คุณต้องการกับไฟล์ที่ถูกเลือก
     console.log("Selected File:", selectedFile);
   };
+  const navigateHome = useNavigate();
   const navigatelogin = useNavigate();
 
   function navigateToLogin() {
     navigatelogin("/login");
   }
+  function navigateToHome() {
+    navigateHome("/");
+  }
   return (
     <>
       <div>
-        <NavbarPagels></NavbarPagels>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="fixed" style={{ backgroundColor: "#12372A" }}>
+            <Toolbar>
+              <div className="fg">
+                <img src={logo} className="logo" />
+              </div>
+              <div>
+                <IconButton onClick={navigateToHome}>
+                  <HomeIcon color="primary" className="bticon"></HomeIcon>
+                </IconButton>
+
+                <IconButton onClick={navigateToLogin}>
+                  <LoginIcon color="primary" className="bticon"></LoginIcon>
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </Box>
       </div>
       <div className="main-s">
         <div>

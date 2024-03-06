@@ -1,29 +1,83 @@
 import { Box } from "@mui/system";
-import NavberPageUser from "../../appbar/user/navber_user";
+import "../../appbar/css/appbar.css"
 import "../uploadpicture/uploadpicture.css";
 import {
+  AppBar,
   Avatar,
   Button,
   Grid,
+  IconButton,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   TextField,
+  Toolbar,
 } from "@mui/material";
 import ImageIcon from "@mui/icons-material/Image";
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
+import logo from "../../../assets/logo.png";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { useNavigate } from "react-router-dom";
+import "../../appbar/css/appbar.css"
 
 function UploadpicturePage() {
   const navigateedit = useNavigate();
+  const navigatehome = useNavigate();
+  const navigatelogin = useNavigate();
+  const navigateprofile = useNavigate();
+  const navigateuploadpicture = useNavigate();
 
+  function navigateToLogin() {
+    navigatelogin("/login");
+  }
+  function navigateToProfile() {
+    navigateprofile("/profile");
+  }
+  function navigateToUploadPicture() {
+    navigateuploadpicture("/uploadpicture");
+  }
+  function navigateToHome() {
+    navigatehome("/");
+  }
   function navigateToEditPicture() {
     navigateedit("/editpicture");
   }
   return (
     <>
       <div>
-        <NavberPageUser></NavberPageUser>
+        <Box>
+          <AppBar position="fixed" style={{ backgroundColor: "#12372A" }}>
+            <Toolbar>
+              <div className="fg">
+                <img src={logo} className="logo" />
+              </div>
+              <div>
+                <IconButton onClick={navigateToHome}>
+                  <HomeIcon color="primary" className="bticon"></HomeIcon>
+                </IconButton>
+
+                <IconButton onClick={navigateToUploadPicture}>
+                  <AddPhotoAlternateIcon
+                    color="primary"
+                    className="bticon"
+                  ></AddPhotoAlternateIcon>
+                </IconButton>
+                <IconButton onClick={navigateToProfile}>
+                  <AccountCircleIcon
+                    color="primary"
+                    className="bticon"
+                  ></AccountCircleIcon>
+                </IconButton>
+                <IconButton onClick={navigateToLogin}>
+                  <LoginIcon color="primary" className="bticon"></LoginIcon>
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </Box>
       </div>
       <div className="bgup">
         <div>
@@ -35,7 +89,7 @@ function UploadpicturePage() {
                 </div>
                 <div>
                   <div className="box_upload">
-                    <div style={{marginTop:"20px",marginBottom:"20px"}}>
+                    <div style={{ marginTop: "20px", marginBottom: "20px" }}>
                       <Button variant="contained" component="label">
                         Upload Images
                         <input type="file" hidden />

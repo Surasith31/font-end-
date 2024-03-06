@@ -1,15 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import NavberPageUser from "../../appbar/user/navber_user";
 import "../profile/profile.css";
+import "../../appbar/css/appbar.css"
 import {
   CardContent,
   TextField,
   Button,
   Avatar,
+  AppBar,
+  IconButton,
+  Toolbar,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useRef, ChangeEvent } from "react";
-
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
+import logo from "../../../assets/logo.png";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 function ProfilePage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -25,14 +32,55 @@ function ProfilePage() {
     console.log("Selected File:", selectedFile);
   };
   const navigatehome = useNavigate();
+  const navigatelogin = useNavigate();
+  const navigateprofile = useNavigate();
+  const navigateuploadpicture = useNavigate();
 
+  function navigateToLogin() {
+    navigatelogin("/login");
+  }
+  function navigateToProfile() {
+    navigateprofile("/profile");
+  }
+  function navigateToUploadPicture() {
+    navigateuploadpicture("/uploadpicture");
+  }
   function navigateToHome() {
     navigatehome("/");
   }
   return (
     <>
       <div>
-        <NavberPageUser></NavberPageUser>
+        <Box>
+          <AppBar position="fixed" style={{ backgroundColor: "#12372A" }}>
+            <Toolbar>
+              <div className="fg">
+                <img src={logo} className="logo" />
+              </div>
+              <div>
+                <IconButton onClick={navigateToHome}>
+                  <HomeIcon color="primary" className="bticon"></HomeIcon>
+                </IconButton>
+
+                <IconButton onClick={navigateToUploadPicture}>
+                  <AddPhotoAlternateIcon
+                    color="primary"
+                    className="bticon"
+                  ></AddPhotoAlternateIcon>
+                </IconButton>
+                <IconButton onClick={navigateToProfile}>
+                  <AccountCircleIcon
+                    color="primary"
+                    className="bticon"
+                  ></AccountCircleIcon>
+                </IconButton>
+                <IconButton onClick={navigateToLogin}>
+                  <LoginIcon color="primary" className="bticon"></LoginIcon>
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </Box>
       </div>
       <div className="main-sp">
         <div>
